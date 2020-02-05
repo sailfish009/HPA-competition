@@ -56,10 +56,9 @@ def download_hpa_v18(data_dir, img_list, process_num=10):
 
 
 def main():
+    dataset_csv = "HPAv18RGBY_WithoutUncertain_wodpl.csv"
     """Run main entrypoint."""
-    img_list = pd.read_csv(
-        "https://kth.box.com/shared/static/fpqus92ep1dgfeuh6pnvg1c9ujwje4b1.csv"
-    )
+    img_list = pd.read_csv(dataset_csv)
 
     download_hpa_v18("./hpa_v18", img_list)
 
