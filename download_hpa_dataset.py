@@ -14,6 +14,11 @@ def download_images(data_dir, img_list, pid, start_idx, end_idx):
 
     for i in tqdm(img_list["Id"][start_idx:end_idx], postfix=pid):
         img = i.split("_")
+        
+        check_img_name = i + "_red.jpg"
+        if os.path.exists(os.path.join(data_dir, check_img_name)):
+            continue
+        
         for color in colors:
             img_path = img[0] + "/" + "_".join(img[1:]) + "_" + color + ".jpg"
             img_name = i + "_" + color + ".jpg"
